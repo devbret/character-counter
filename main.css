@@ -1,0 +1,50 @@
+* {
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+header {
+    margin: 25px auto 0px auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+section {
+    width: 300px;
+    padding: 15px;
+    margin: auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+footer {
+    padding: 15px;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}
+#userInput {
+    border: 1px solid black;
+    margin: 15px 0px;
+    width: 90%;
+}
+#submit {
+    margin: 0px 0px 15px 0px;
+    padding: 4px 6px;
+    border: 1px solid black;
+}
+#submit:hover {
+    background-color: gold;
+    cursor: pointer;
+}
+#output {
+    margin: 15px 0px;
+}
