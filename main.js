@@ -3,6 +3,7 @@ function main() {
     const userInput = document.querySelector(`#userInput`);
     const submit = document.querySelector(`#submit`);
     const output = document.querySelector(`#output`);
+    const stats = document.querySelector(`#stats`);
     //Character counting event listener.
     submit.addEventListener(`click`, function(){
         //Prepare the user's data for analysis.
@@ -21,11 +22,16 @@ function main() {
                         index = i;
                     }
                 }
-                //If so, increase the number of times it has been counted by one. If not, add the unique character to the total array and make it available for future increment.
-                if (isIn) {
-                    total[index].times++;
-                } else {
-                    total.push({ch:d,times:1})
+                //If so, increase the number of times it has been counted by one. If not, add the unique character to the total array and make it available for future increment. But only if the character isn't an empty space.
+                if (d !== ` `) {
+                    if (isIn) {
+                        total[index].times++;
+                    } else {
+                        total.push({
+                            ch:d,
+                            times:1
+                        })
+                    }
                 }
                 //Return the total array.
                 return total;
@@ -43,8 +49,14 @@ function main() {
             //Clear the output text from any previous uses and present the results in a meaningful way.
             output.innerHTML = ``;
             for (let a in finalAnswer) {
-                output.innerHTML += `"<b>${answer[a].ch}</b>" - ${answer[a].times}, `;
+                output.innerHTML += `'<b>${answer[a].ch}</b>' - ${answer[a].times}, `;
             }
+            //Calculating and displaying the total character count.
+            let totalChars = 0;
+            for (let a in finalAnswer) {
+                totalChars += finalAnswer[a].times;
+            }
+            stats.innerHTML = ` And a total of ${totalChars} characters.`;
         }
     });
 }
